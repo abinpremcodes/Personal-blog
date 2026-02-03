@@ -1,0 +1,90 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }} - Personal Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <!-- Post Content -->
+        <article class="card shadow-sm mb-4">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="max-height: 400px; object-fit: cover;">
+            {% endif %}
+            
+            <div class="card-body">
+                <h1 class="card-title">{{ post.title }}</h1>
+                {% if user == post.author %}
+                <div class="mb-3">
+                <a href="{% url 'blog:edit_post' post.pk %}" class="btn btn-warning">✏️ Edit Post</a>
+                <a href="{% url 'blog:delete_post' post.pk %}" class="btn btn-danger">🗑️ Delete Post</a>
+            </div>
+            {% endif %}
+```
+
+
+                
+                <div class="text-muted mb-3">
+                    <small>
+                        <strong>By:</strong> {{ post.author.username }} | 
+                        <strong>Date:</strong> {{ post.created_at|date:"F d, Y" }} | 
+                        {% if post.category %}
+                            <span class="badge bg-primary">{{ post.category.name }}</span>
+                        {% endif %}
+                    </small>
+                </div>
+                
+                <hr>
+                
+                <div class="post-content" style="line-height: 1.8; font-size: 1.1rem;">
+                    {{ post.content|linebreaks }}
+                </div>
+            </div>
+        </article>
+
+        <!-- Add Comment Form -->
+        {% if user.is_authenticated %}
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5>Leave a Comment</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <p>Please <a href="{% url 'blog:login' %}?next={{ request.path }}">login</a> to leave a comment.</p>
+            </div>
+        {% endif %}
+
+        <!-- Comments Section -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h4>Comments ({{ comments.count }})</h4>
+            </div>
+            <div class="card-body">
+                {% if comments %}
+                    {% for comment in comments %}
+                        <div class="mb-3 p-3 bg-light rounded">
+                            <strong>{{ comment.author.username }}</strong>
+                            <small class="text-muted">- {{ comment.created_at|date:"M d, Y H:i" }}</small>
+                            <p class="mt-2 mb-0">{{ comment.content }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">No comments yet. Be the first to comment!</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="mt-4">
+            <a href="{% url 'blog:home' %}" class="btn btn-secondary">← Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

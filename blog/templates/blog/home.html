@@ -1,0 +1,62 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Home - Personal Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Sidebar with Categories -->
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5>Categories</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="{% url 'blog:home' %}" class="list-group-item list-group-item-action">All Posts</a>
+                {% for category in categories %}
+                    <a href="{% url 'blog:category_posts' category.id %}" class="list-group-item list-group-item-action">
+                        {{ category.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="col-md-9">
+        <h1 class="mb-4">Latest Blog Posts</h1>
+        
+        {% if posts %}
+            <div class="row">
+                {% for post in posts %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="height: 200px; object-fit: cover;">
+                            {% else %}
+                                <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <span class="text-white">No Image</span>
+                                </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text text-muted">
+                                    <small>By {{ post.author.username }} | {{ post.created_at|date:"M d, Y" }}</small>
+                                </p>
+                                {% if post.category %}
+                                    <span class="badge bg-primary">{{ post.category.name }}</span>
+                                {% endif %}
+                                <p class="card-text mt-2">{{ post.content|truncatewords:30 }}</p>
+                                <a href="{% url 'blog:post_detail' post.pk %}" class="btn btn-outline-primary btn-sm">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <p>No blog posts available yet. Create your first post in the admin panel!</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

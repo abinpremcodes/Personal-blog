@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Login - Personal Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h3>Login</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success w-100">Login</button>
+                </form>
+                
+                <hr>
+                <p class="text-center">Don't have an account? <a href="{% url 'blog:register' %}">Register here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

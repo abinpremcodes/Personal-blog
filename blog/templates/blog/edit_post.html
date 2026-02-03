@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Edit Post</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label>Title</label>
+                            {{ form.title }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label>Category</label>
+                            {{ form.category }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label>Content</label>
+                            {{ form.content }}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label>Image</label>
+                            {{ form.image }}
+                            {% if post.image %}
+                                <p class="text-muted">Current image: {{ post.image.name }}</p>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Update Post</button>
+                        <a href="{% url 'blog:post_detail' post.pk %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
