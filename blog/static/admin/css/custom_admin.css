@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --dark: #0f0f1a;
+  --dark2: #1a1a2e;
+  --dark3: #1e1e32;
+  --accent: #6c63ff;
+  --accent-hover: #5a52e0;
+  --success-bg: #e8f5e9;
+  --success-text: #2e7d32;
+  --draft-bg: #f3f3f8;
+  --draft-text: #8888aa;
+  --danger-bg: #fef2f2;
+  --danger-text: #dc2626;
+  --border: #ececf5;
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --text: #0f0f1a;
+  --text-muted: #8888aa;
+  --radius: 10px;
+  --radius-lg: 12px;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* ── Header ── */
+#header {
+  background: var(--dark) !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding: 0 28px !important;
+  height: 58px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#branding h1 {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#branding h1 a, #branding h1 a:visited {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+#user-tools {
+  font-size: 12px !important;
+  color: #555577 !important;
+  font-weight: 600 !important;
+}
+
+#user-tools a {
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+/* ── Breadcrumbs ── */
+#breadcrumbs {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 0 16px 0 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+}
+
+#breadcrumbs a {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+}
+
+/* ── Content ── */
+#content {
+  padding: 24px !important;
+}
+
+/* ── Modules ── */
+.module {
+  background: var(--surface) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  margin-bottom: 20px !important;
+}
+
+.module caption, .module h2, .module > h2 {
+  background: #fafafa !important;
+  color: var(--text) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  padding: 14px 16px !important;
+  border-bottom: 2px solid var(--border) !important;
+}
+
+/* ── App index cards ── */
+.app-auth, .app-blog {
+  background: var(--surface) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+  margin-bottom: 16px !important;
+  border-top: 4px solid var(--dark) !important;
+}
+
+.app-auth caption, .app-blog caption {
+  color: var(--text) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  background: #fafafa !important;
+  padding: 14px 16px !important;
+  letter-spacing: 0.06em !important;
+  border-bottom: 2px solid var(--border) !important;
+}
+
+/* ── Tables ── */
+table th {
+  background: #fafafa !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 10px 16px !important;
+  border-bottom: 2px solid var(--border) !important;
+}
+
+table td {
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid #f3f3f8 !important;
+}
+
+table tr:last-child td {
+  border-bottom: none !important;
+}
+
+table tr:hover td {
+  background: #fafafa !important;
+}
+
+/* ── Add / Change links in app index ── */
+td.addlink a, td.changelink a,
+.addlink, .changelink {
+  background: transparent !important;
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+td.addlink a:hover, td.changelink a:hover {
+  color: var(--accent-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* ── Buttons ── */
+.button, input[type=submit], input[type=button], a.button {
+  background: var(--dark) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: 9px 18px !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  font-family: 'Inter', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.button:hover, input[type=submit]:hover {
+  background: var(--accent) !important;
+}
+
+.button.default, input[type=submit].default {
+  background: var(--accent) !important;
+}
+
+.button.default:hover {
+  background: var(--accent-hover) !important;
+}
+
+.deletelink, a.deletelink {
+  background: var(--danger-bg) !important;
+  color: var(--danger-text) !important;
+  border-radius: var(--radius) !important;
+  padding: 7px 14px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  text-decoration: none !important;
+  border: none !important;
+}
+
+/* ── Forms ── */
+input[type=text], input[type=password], input[type=email],
+input[type=url], input[type=number], textarea, select {
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 9px 14px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+  background: #fff !important;
+  color: var(--text) !important;
+  outline: none !important;
+}
+
+input[type=text]:focus, input[type=password]:focus,
+input[type=email]:focus, textarea:focus, select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.15) !important;
+}
+
+label {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
+}
+
+/* ── Messages ── */
+.messagelist li {
+  padding: 12px 16px !important;
+  border-radius: var(--radius) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  margin-bottom: 8px !important;
+  border: none !important;
+}
+
+.messagelist li.success {
+  background: var(--success-bg) !important;
+  color: var(--success-text) !important;
+}
+
+.messagelist li.error {
+  background: var(--danger-bg) !important;
+  color: var(--danger-text) !important;
+}
+
+/* ── Changelist ── */
+#changelist {
+  background: var(--surface) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+}
+
+#changelist-filter {
+  background: var(--surface) !important;
+  border-left: 2px solid var(--border) !important;
+  padding: 16px !important;
+}
+
+#changelist-filter h2 {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--text-muted) !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 0 10px 0 !important;
+}
+
+#changelist-filter li a {
+  color: var(--text-muted) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+#changelist-filter li.selected a {
+  color: var(--accent) !important;
+  font-weight: 800 !important;
+}
+
+/* ── Search ── */
+#toolbar {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 0 16px 0 !important;
+}
+
+#searchbar {
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 9px 14px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+  outline: none !important;
+}
+
+#searchbar:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.15) !important;
+}
+
+/* ── Submit row ── */
+.submit-row {
+  background: #fafafa !important;
+  border-top: 2px solid var(--border) !important;
+  padding: 14px 16px !important;
+  display: flex !important;
+  gap: 10px !important;
+}
+
+/* ── Recent Actions ── */
+#recent-actions-module {
+  background: var(--surface) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+}
+
+#recent-actions-module h2 {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--text-muted) !important;
+  padding: 12px 16px !important;
+  border-bottom: 2px solid var(--border) !important;
+  background: #fafafa !important;
+}
+
+#recent-actions-module ul {
+  list-style: none !important;
+  padding: 6px 0 !important;
+}
+
+#recent-actions-module ul li {
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  border-bottom: 1px solid #f3f3f8 !important;
+  background: var(--surface) !important;
+}
+
+#recent-actions-module ul li:last-child {
+  border-bottom: none !important;
+}
+
+#recent-actions-module ul li a {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+/* ── Paginator ── */
+.paginator {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  padding: 12px 16px !important;
+  border-top: 2px solid var(--border) !important;
+}
+
+.paginator a {
+  color: var(--accent) !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+}
+
+/* ── Nav sidebar ── */
+#nav-sidebar {
+  background: var(--dark) !important;
+  border-right: none !important;
+}
+
+#nav-sidebar .module {
+  background: transparent !important;
+  border: none !important;
+}
+
+#nav-sidebar .module caption,
+#nav-sidebar .module h2 {
+  background: transparent !important;
+  color: #444466 !important;
+  border-bottom: 1px solid #1e1e32 !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+}
+
+#nav-sidebar a {
+  color: #8888aa !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  text-decoration: none !important;
+  display: block !important;
+  padding: 9px 14px !important;
+  border-radius: 10px !important;
+  margin: 2px 8px !important;
+}
+
+#nav-sidebar a:hover {
+  background: #1a1a2e !important;
+  color: #fff !important;
+}
+
+#nav-sidebar .current-app a,
+#nav-sidebar .selected a {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
